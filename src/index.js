@@ -1,6 +1,7 @@
 const express = require('express');
 const sequelize = require('./config/db');
-const userRoutes = require('./routes/userRoutes'); // Asegúrate de que la ruta sea correcta
+const userRoutes = require('./routes/userRoutes');
+const taskRoutes = require('./routes/taskRoutes'); // Importar rutas de tareas
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,7 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Rutas
-app.use('/api', userRoutes); // Esta línea hace que las rutas definidas en userRoutes.js estén disponibles en /api
+app.use('/api/users', userRoutes);
+app.use('/api/tasks', taskRoutes); // Configurar rutas para tareas
 
 // Sincronizar los modelos con la base de datos
 sequelize.sync()
