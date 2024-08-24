@@ -1,8 +1,6 @@
 // src/models/status.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./user'); // Asegúrate de que la ruta sea correcta
-const User = require('./taks');
 
 const Status = sequelize.define('Status', {
   id: {
@@ -39,4 +37,4 @@ const Status = sequelize.define('Status', {
 
 // status.belongsTo(tasks_status, { foreignKey: '' });
 
-module.exports = Task;
+module.exports = Status;

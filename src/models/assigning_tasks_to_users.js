@@ -2,7 +2,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const User = require('./user'); // Asegúrate de que la ruta sea correcta
-const Tasks = require('./taks');
+const Tasks = require('./task');
 const Tasks_status = require('./tasks_status');
 
 const assigning_tasks_to_users = sequelize.define('assigning_tasks_to_users', {

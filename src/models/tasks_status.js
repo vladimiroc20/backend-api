@@ -1,11 +1,10 @@
-// src/models/tasks_status.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./user'); // Asegúrate de que la ruta sea correcta
-const User = require('./taks');
-const User = require('./status');
+const User = require('./user');
+// const Task = require('./task');
+// const Status = require('./status');
 
-const tasks_status = sequelize.define('tasks_tatus', {
+const TasksStatus = sequelize.define('TasksStatus', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -13,20 +12,16 @@ const tasks_status = sequelize.define('tasks_tatus', {
   },
   id_task: {
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true,
+    allowNull: false,
   },
   id_user: {
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true,
+    allowNull: false,
   },
   id_status: {
     type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
-    primaryKey: true,
+    allowNull: false,
   },
-
   createdat: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
@@ -43,11 +38,13 @@ const tasks_status = sequelize.define('tasks_tatus', {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
-  
 }, {
   timestamps: true,
 });
 
-// status.belongsTo(tasks_status, { foreignKey: '' });
+// Relaciones
+TasksStatus.belongsTo(User, { foreignKey: 'id' });
+// TasksStatus.belongsTo(Task, { foreignKey: 'id_task' });
+// TasksStatus.belongsTo(Status, { foreignKey: 'id_status' });
 
-module.exports = tasks_status;
+module.exports = TasksStatus;

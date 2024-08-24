@@ -1,7 +1,6 @@
 // src/models/Task.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./user'); // Asegúrate de que la ruta sea correcta
 
 const Task = sequelize.define('Task', {
   id: {
@@ -36,7 +35,5 @@ const Task = sequelize.define('Task', {
 }, {
   timestamps: true,
 });
-
-Task.belongsTo(User, { foreignKey: 'userId' });
 
 module.exports = Task;
