@@ -20,13 +20,19 @@ const Task = sequelize.define('Task', {
     type: DataTypes.ENUM('pending', 'in_progress', 'completed'),
     defaultValue: 'pending',
   },
-  userId: {
-    type: DataTypes.UUID,
-    references: {
-      model: 'Users', // Nombre de la tabla en la base de datos
-      key: 'id',
-    },
+  createdat: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
   },
+  updatedat: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+  deleted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  
 }, {
   timestamps: true,
 });

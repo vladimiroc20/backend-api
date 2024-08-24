@@ -1,3 +1,4 @@
+const { request } = require('express');
 const Task = require('../models/task');
 
 // Obtener todas las tareas
@@ -26,12 +27,14 @@ exports.getTaskById = async (req, res) => {
 
 // Crear una nueva tarea
 exports.createTask = async (req, res) => {
-  try {
-    const newTask = await Task.create(req.body);
-    res.status(201).json(newTask);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  let task = req.body 
+  console.log(task)
+  // try {
+  //   const newTask = await Task.create(req.body);
+  //   res.status(201).json(newTask);
+  // } catch (error) {
+  //   res.status(500).json({ error: error.message });
+  // }
 };
 
 // Actualizar una tarea existente
