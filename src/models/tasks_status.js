@@ -19,14 +19,7 @@ const TasksStatus = sequelize.define('TasksStatus', {
     type: DataTypes.UUID,
     allowNull: false,
   },
-  createdat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+
   deleted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,

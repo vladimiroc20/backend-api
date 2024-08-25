@@ -19,14 +19,7 @@ const Task = sequelize.define('Task', {
     type: DataTypes.ENUM('pending', 'in_progress', 'completed'),
     defaultValue: 'pending',
   },
-  createdat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+
   deleted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,

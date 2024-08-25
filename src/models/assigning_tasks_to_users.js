@@ -27,14 +27,6 @@ const assigning_tasks_to_users = sequelize.define('assigning_tasks_to_users', {
     primaryKey: true,
   },
 
-  createdat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
   active: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
@@ -44,6 +36,5 @@ const assigning_tasks_to_users = sequelize.define('assigning_tasks_to_users', {
   timestamps: true,
 });
 
-// status.belongsTo(tasks_status, { foreignKey: '' });
 
 module.exports = assigning_tasks_to_users;

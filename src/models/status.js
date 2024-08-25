@@ -18,14 +18,7 @@ const Status = sequelize.define('Status', {
   status_descriptions: {
     type: DataTypes.TEXT,
   },
-  createdat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+
   deleted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,

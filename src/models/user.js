@@ -23,15 +23,12 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  createdat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedat: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+
   deleted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  active: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
