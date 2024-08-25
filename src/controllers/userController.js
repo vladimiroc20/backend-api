@@ -1,4 +1,4 @@
-const { User, TasksStatus, Task } = require('../models/models');
+const { User } = require('../models/models');
 
 // Ejemplo de cómo usar los modelos con relaciones ya configuradas
 // Obtener todos los usuarios
@@ -27,12 +27,34 @@ exports.getUserById = async (req, res) => {
 
 // Crear un nuevo usuario
 exports.createUser = async (req, res) => {
-  try {
-    const newUser = await User.create(req.body);
-    res.status(201).json(newUser);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  let userData = req.body;
+
+  User.findAll({
+    where: {
+      email: userData.email
+    }
+  }).then(users => {
+    if (users.length === 0){
+      User.create({
+        name: userData.name,
+        email: userData.email,
+        password: userData.password
+      }, {
+        fields: ['name', 'email', 'password']  // Solo 'name' y 'email' serán guardados; 'password' no será incluido.
+      }).then(user => {
+        res.status(201).json( user.toJSON());
+      }).catch(error => {
+        res.status(500).json({ error: error.message })
+      });
+    }else{
+      res.status(409).json({message:"El usuario ya existe"});
+    }
+  }).catch(error => {
+    console.error('Error:', error);
+  });
+
+
+
 };
 
 // Actualizar un usuario existente

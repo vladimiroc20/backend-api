@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Rutas
-app.use('/api/users', userRoutes);
+app.use('/api/create_user', userRoutes);
 app.use('/api/tasks', taskRoutes); // Configurar rutas para tareas
 
 // Sincronizar los modelos con la base de datos
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => {
     console.log('Database & tables created!');
   })
