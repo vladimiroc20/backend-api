@@ -14,12 +14,12 @@ app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes); // Configurar rutas para tareas
 
 // Sincronizar los modelos con la base de datos
-sequelize.sync()
+sequelize.sync({ force: true })
   .then(() => {
     console.log('Database & tables created!');
   })
   .catch((error) => {
-    console.error('Unable to connect to the database:', error);
+    console.error('Failed to sync database:', error);
   });
 
 // Iniciar el servidor

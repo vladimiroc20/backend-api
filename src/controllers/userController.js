@@ -1,5 +1,6 @@
-const User = require('../models/user');
+const { User, TasksStatus, Task } = require('../models/models');
 
+// Ejemplo de cómo usar los modelos con relaciones ya configuradas
 // Obtener todos los usuarios
 exports.getAllUsers = async (req, res) => {
   try {

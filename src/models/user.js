@@ -1,4 +1,3 @@
-// src/models/User.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
@@ -23,6 +22,15 @@ const User = sequelize.define('User', {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+
+  deleted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  active: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
   },
 }, {
   timestamps: true,

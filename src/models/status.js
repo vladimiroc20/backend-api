@@ -1,23 +1,22 @@
-// src/models/Task.js
+// src/models/status.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Task = sequelize.define('Task', {
+const Status = sequelize.define('Status', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true,
   },
-  title: {
+  status_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  description: {
-    type: DataTypes.TEXT,
+  status_code: {
+    type: DataTypes.STRING(10),
   },
-  status: {
-    type: DataTypes.ENUM('pending', 'in_progress', 'completed'),
-    defaultValue: 'pending',
+  status_descriptions: {
+    type: DataTypes.TEXT,
   },
 
   deleted: {
@@ -29,4 +28,5 @@ const Task = sequelize.define('Task', {
   timestamps: true,
 });
 
-module.exports = Task;
+
+module.exports = Status;
