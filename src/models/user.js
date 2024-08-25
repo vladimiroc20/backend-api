@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const TasksStatus = require('./tasks_status');
 
 const User = sequelize.define('User', {
   id: {
@@ -39,8 +38,5 @@ const User = sequelize.define('User', {
 }, {
   timestamps: true,
 });
-
-// Relaciones
-User.hasMany(TasksStatus, { foreignKey: 'id_user' });
 
 module.exports = User;

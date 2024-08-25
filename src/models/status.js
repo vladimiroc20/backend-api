@@ -35,6 +35,5 @@ const Status = sequelize.define('Status', {
   timestamps: true,
 });
 
-// status.belongsTo(tasks_status, { foreignKey: '' });
 
 module.exports = Status;
